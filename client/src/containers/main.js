@@ -559,26 +559,97 @@ function FeaturedOrg(props) {
 }
 
 /**
- * The grid of posts at the top of the page, without the Prev or Next buttons or the filtering
- * @param props the props passed to this element, with the field `posts` representing
- * the list of posts to display, `selectedId` representing the id of the selected post,
- * and `onClick`, a function called whenever a post is clicked
+ * The grid of posts at the top of the page, including the Prev and Next buttons, but not the filtering
+ * props passed in are:
+ *  posts: the list of posts to display
+ *  selectedId: id of the selected post
+ *  onClick: a function called whenever a post is clicked
  */
-function PostGrid({ posts, selectedId, onClick }) {
+class PostGrid extends React.Component {
+    constructor() {
+        super();
+        console.log("constructor", this.props);
+        this.state = {
+            currentAmount: 16,
+            // current page number (1 = first page)
+            currentPlace: 1,
+        };
+    }
+    componentDidUpdate(prevProps) {
+        if (this.props.posts.length !== prevProps.posts.length) {
+            // number of posts changed, probably because one of the filters changed, so we should
+            // move back to the first page
+
+            this.setState({
+                currentAmount: 16,
+                currentPlace: 1,
+            });
+        }
+    }
+
+    scrollPrev = (e) => {
+        if (this.state.currentPlace > 1) {
+            this.setState({
+                currentAmount: this.state.currentAmount - 16,
+                currentPlace: this.state.currentPlace - 1,
+            });
+        }
+    };
+
+    scrollNext = (e) => {
+        const amountOfPages = Math.ceil(this.props.posts.length / 16);
+        if (this.state.currentPlace < amountOfPages) {
+            this.setState({
+                currentAmount: this.state.currentAmount + 16,
+                currentPlace: this.state.currentPlace + 1,
+            });
+        }
+    };
     // TODO: fix unique key property console error
-    return (
-        <>
-            <div className="dod-media-grid dod-stack-15">
-                {posts.map((post) => (
-                    <Post
-                        post={post}
-                        selected={selectedId == post._id}
-                        onClick={onClick}
-                    />
-                ))}
-            </div>
-        </>
-    );
+    render() {
+        const { posts, selectedId, onClick } = this.props;
+        console.log(this.state, this.props);
+        return (
+            <>
+                <div className="dod-media-grid dod-stack-15">
+                    {posts
+                        .slice(
+                            this.state.currentAmount - 16,
+                            this.state.currentAmount
+                        )
+                        .map((post) => (
+                            <Post
+                                post={post}
+                                selected={selectedId == post._id}
+                                onClick={onClick}
+                            />
+                        ))}
+                </div>
+                {/* Pagination here*/}
+
+                <br />
+                <a
+                    style={{
+                        cursor: "pointer",
+                        color: "purple",
+                    }}
+                    onClick={this.scrollPrev}
+                >
+                    <b>← Prev</b>
+                </a>
+                <a
+                    style={{
+                        marginLeft: "20px",
+                        cursor: "pointer",
+                        color: "purple",
+                    }}
+                    onClick={this.scrollNext}
+                >
+                    <b>Next →</b>
+                </a>
+            </>
+        );
+    }
 }
 
 /**
@@ -599,35 +670,12 @@ class PostDisplay extends React.Component {
 
             permId: "",
 
-            amountOfPages: 0,
-            currentAmount: 16,
-            // current page number (1 = first page)
-            currentPlace: 1,
-
             // categories selected in the filtering
             categories: [],
             // if any filter checkboxes are currently selected
             filteringEnabled: false,
         };
     }
-    scrollPrev = (e) => {
-        if (this.state.currentPlace > 1) {
-            this.setState({
-                currentAmount: this.state.currentAmount - 16,
-                currentPlace: this.state.currentPlace - 1,
-            });
-        }
-    };
-
-    scrollNext = (e) => {
-        const amountOfPages = Math.ceil(this.props.posts.length / 16);
-        if (this.state.currentPlace < amountOfPages) {
-            this.setState({
-                currentAmount: this.state.currentAmount + 16,
-                currentPlace: this.state.currentPlace + 1,
-            });
-        }
-    };
     _showMessage = (bool, e) => {
         this.setState({
             showMessage: bool,
@@ -679,6 +727,14 @@ class PostDisplay extends React.Component {
         // don't keep posts selected after filters change because then a post might
         // be selected that isn't being shown
         this.unselectPost();
+
+        // go back to the first page - if we don't do this, people might see just a blank
+        // screen after changing the filters if they weren't originally on the first page
+        this.setState({
+            currentAmount: 16,
+            currentPlace: 1,
+        });
+
         const id = e.target.id;
         const category = id.replace("Button", "");
         if (document.getElementById(id).checked) {
@@ -707,7 +763,7 @@ class PostDisplay extends React.Component {
      */
     shouldInclude = (post) => {
         if (!this.state.filteringEnabled) {
-            // if filtering is enabled, include everything
+            // if filtering is not enabled, include everything
             return true;
         }
         return this.state.categories.some((category) =>
@@ -721,38 +777,11 @@ class PostDisplay extends React.Component {
                 {/* <h2 className="dod-heading-2 dod-stack-24">Upcoming events!</h2> */}
 
                 <PostGrid
-                    posts={this.props.posts
-                        .filter(this.shouldInclude)
-                        .slice(
-                            this.state.currentAmount - 16,
-                            this.state.currentAmount
-                        )}
+                    posts={this.props.posts.filter(this.shouldInclude)}
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
                 />
 
-                {/* Pagination here*/}
-
-                <br />
-                <a
-                    style={{
-                        cursor: "pointer",
-                        color: "purple",
-                    }}
-                    onClick={this.scrollPrev}
-                >
-                    <b>← Prev</b>
-                </a>
-                <a
-                    style={{
-                        marginLeft: "20px",
-                        cursor: "pointer",
-                        color: "purple",
-                    }}
-                    onClick={this.scrollNext}
-                >
-                    <b>Next →</b>
-                </a>
                 <p
                     style={{
                         marginLeft: "20px",
@@ -771,17 +800,17 @@ class PostDisplay extends React.Component {
                 >
                     {this.state.message}
                 </a>
-                {this.state.showMessage ? (
-                    <>
+                <>
+                    <div
+                        style={{
+                            display: this.state.showMessage ? "inline" : "none",
+                        }}
+                    >
                         <br></br>
                         <br></br>
                         <FilterBoxes onChange={this.filterChanged} />
-                    </>
-                ) : (
-                    <>
-                        <p></p>
-                    </>
-                )}
+                    </div>
+                </>
             </main>
         ) : (
             <>
@@ -863,8 +892,8 @@ class FilterBoxes extends React.Component {
  *  id: string,
  *  text: string
  *  onChange: any
- * }} props the properties `id`, which is the id of the checkbox, and `text`,
- * which is the text displayed for the checkbox
+ * }} props `id` is the id of the checkbox, `text` is the text displayed for the checkbox,
+ * and `onChange` is called whenever the checkbox's state changes
  */
 function FilterCheckbox(props) {
     return (
