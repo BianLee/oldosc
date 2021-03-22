@@ -159,19 +159,13 @@ export default class ManagementComponent extends React.Component {
                                     fontFamiliy: "Giga Sans Light",
                                 }}
                             >
-                                Pranav is a Senior at Northwood High school.
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum.{" "}
+                                Pranav is a senior at Northwood High School. He
+                                enjoys learning about computers, technology, and
+                                how they work in his free time. He also spends
+                                his free time programming and learning more
+                                about math and science-related topics. <br />
                                 <br />
-                                <br />
+                                <br /> <br />
                             </p>
 
                             <div className="bio">
