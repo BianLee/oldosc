@@ -226,18 +226,15 @@ export default class ManagementComponent extends React.Component {
                                     fontFamiliy: "Giga Sans Light",
                                 }}
                             >
-                                Anthony is a sophomore at Northwood High school.
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum.{" "}
-                                <br />
+                                Anthony is a Sophomore at Northwood High who is
+                                interested in helping create more equal chances
+                                for students to explore their passions. Being a
+                                volunteer for some non profit organizations, he
+                                aims to also help non profits find invested
+                                volunteers and grow as well. He is passionate
+                                about clarinet, swim, and general engineering
+                                related subjects. He aims to continue improving
+                                as a leader and communicator. <br />
                                 <br />
                             </p>
                         </main>
