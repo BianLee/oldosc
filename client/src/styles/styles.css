@@ -119,6 +119,16 @@ strong {
     padding: 28px;
     width: 200px;
 }
+.featured {
+    float: left;
+    padding: 28px;
+    width: 200px;
+}
+.featuredRight {
+    float: right;
+    padding: 28px;
+    width: 200px;
+}
 
 #logo {
     width: 110px;
@@ -143,6 +153,23 @@ strong {
     }
 }
 
+@media (max-width: 1000px) {
+    .featured {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+    .featuredRight {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 40%;
+    }
+}
+
 .sponsor {
     float: left;
 }
@@ -152,7 +179,7 @@ strong {
 .sponsor img {
     width: 15vw;
     height: auto;
-    padding: 20px;
+    padding-right: 20px;
 }
 .sponsorSection {
 }

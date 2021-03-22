@@ -5,7 +5,7 @@ import "../styles/styles.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import firebase from "firebase";
 import ReactLoading from "react-loading";
-import github from "../images/github.png";
+import sponsorpic from "../images/interstem.png";
 import logo from "../images/logo.png";
 export default class HomeMainComponent extends React.Component {
     constructor() {
@@ -346,12 +346,6 @@ function NavBar(props) {
                                 <img id="logo" src={logo}></img>
                             </div>
                         </Link>
-                        <p className="dod-heading-3 dod-stack-16 logoDesc">
-                            <br />
-                            <br />
-                            Open Source Collage - gain free access to high
-                            school student resources
-                        </p>
                     </h1>
                 </div>
                 <p></p>
@@ -476,6 +470,7 @@ function AboutUsBox(props) {
                     fontWeight: "lighter",
                     lineHeight: "30px",
                     marginBottom: "10px",
+                    marginTop: "10px",
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
@@ -491,18 +486,7 @@ function AboutUsBox(props) {
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae
-                vitae dicta sunt explicabo. Nemo enim ipsam veritatis o
-                inventore. Et harum quidem rerum facilis est et expedita
-                distinctio. Nam libero tempore soluta nobis est eligendi optio
-                cumque nihil impedit quo minus id quod m<br></br>
-                <br></br>quae ab illo inventore veritatis et quasi architecto
-                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem qu
-                et quasi architecto beatae vitae. quae ab illo inventore
-                veritatis et quasi ar. beatae vitae dicta sunt explicabo. Nemo
-                enim ipsam.
+                Open Source Collage is a platform...
             </p>
         </main>
     );
@@ -519,8 +503,8 @@ function FeaturedOrg(props) {
             style={{ marginTop: "18px" }}
         >
             <br></br>
-            <div className="sponsor">
-                <img src={github}></img>
+            <div className="featured">
+                <img src={sponsorpic}></img>
             </div>
             <p
                 style={{
@@ -531,7 +515,7 @@ function FeaturedOrg(props) {
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                GitHub - Featured Organization of The Month
+                InterSTEM - Featured Organization
             </p>
             <p
                 style={{
@@ -542,20 +526,26 @@ function FeaturedOrg(props) {
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                GitHub, Inc. is a provider of Internet hosting for software
-                development and version control using Git. It offers the
-                distributed version control and source code management (SCM)
-                functionality of Git, plus its own features. It provides access
-                control and several collaboration features such as bug tracking,
-                feature requests, task management, continuous integration and
-                wikis for every project.[3] Headquartered in California, it has
-                been a subsidiary of Microsoft since 2018
+                InterSTEM is a non-profit organization that hopes to raise
+                awareness about the relevance of STEM-related topics to the
+                world. Functioning mainly online, this platform offers a
+                tutoring service for students, updates readers about current
+                news in STEM through articles and blog posts, and plans
+                collaborative projects between high school and elementary
+                students. Through the integration of science, technology,
+                engineering, and mathematics, InterSTEM provides students of all
+                backgrounds the opportunity to explore and dive deeper into the
+                world of STEM. Learn more about InterSTEM{" "}
+                <a
+                    href="https://interstem.us"
+                    target="_blank"
+                    style={{ color: "purple" }}
+                >
+                    here
+                </a>
+                .<br></br>
                 <br></br>
                 <br></br>
-                The GitHub service was developed by Chris Wanstrath, P. J.
-                Hyett, Tom Preston-Werner and Scott Chacon using Ruby on Rails,
-                and started in February 2008. The company, GitHub, Inc., has
-                existed since 2007 and is located in San Francisco.[14]
             </p>
         </main>
     );

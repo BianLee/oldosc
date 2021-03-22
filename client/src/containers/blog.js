@@ -34,12 +34,6 @@ export default class BlogComponent extends React.Component {
                                             <img id="logo" src={logo}></img>
                                         </div>
                                     </Link>
-                                    <p className="dod-heading-3 dod-stack-16 logoDesc">
-                                        <br />
-                                        <br />
-                                        Open Source Collage - gain free access
-                                        to high school student resources
-                                    </p>
                                 </h1>
                             </div>
                             <p></p>
