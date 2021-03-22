@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/styles.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from "../images/logo.png";
-export default class FRQComponent extends React.Component {
+export default class FAQComponent extends React.Component {
     constructor() {
         super();
         this.state = {};
@@ -43,22 +43,31 @@ export default class FRQComponent extends React.Component {
                                 </h1>
                             </div>
                             <p></p>
-                            <Link to="/about" style={{ marginLeft: "18px" }}>
-                                About
-                            </Link>
-                            <Link to="/blog" style={{ marginLeft: "10px" }}>
+                            {/* <Link to="/blog" style={{ marginLeft: "10px" }}>
                                 Blog
-                            </Link>
+                            </Link> */}
                             <a
                                 href="https://discord.gg/zPyjsCJ5Sn"
                                 target="_blank"
-                                style={{ marginLeft: "10px" }}
                             >
                                 Discord
                             </a>
-                            <Link to="/frq" style={{ marginLeft: "10px" }}>
-                                FRQ
+                            <a
+                                href="https://github.com/BianLee/opensourcecollage.com"
+                                target="_blank"
+                                style={{ marginLeft: "10px" }}
+                            >
+                                Contribute
+                            </a>
+                            <Link
+                                to="/management"
+                                style={{ marginLeft: "10px" }}
+                            >
+                                Management
                             </Link>
+                            {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
+                                FAQ
+                            </Link> */}
                             <Link
                                 to="/post"
                                 className="dod-button"

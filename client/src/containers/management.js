@@ -2,10 +2,11 @@ import React from "react";
 import "../styles/styles.css";
 import BianLee from "../images/bianlee.jpeg";
 import AnthonyFoo from "../images/anthonyfoo.png";
+import RutvijHolay from "../images/rutvijholay.jpg";
 import NoPic from "../images/no.jpg";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import logo from "../images/logo.png";
-export default class AboutComponent extends React.Component {
+export default class ManagementComponent extends React.Component {
     constructor() {
         super();
         this.state = {};
@@ -47,22 +48,31 @@ export default class AboutComponent extends React.Component {
                                 </h1>
                             </div>
                             <p></p>
-                            <Link to="/about" style={{ marginLeft: "18px" }}>
-                                About
-                            </Link>
-                            <Link to="/blog" style={{ marginLeft: "10px" }}>
+                            {/* <Link to="/blog" style={{ marginLeft: "10px" }}>
                                 Blog
-                            </Link>
+                            </Link> */}
                             <a
                                 href="https://discord.gg/zPyjsCJ5Sn"
                                 target="_blank"
-                                style={{ marginLeft: "10px" }}
                             >
                                 Discord
                             </a>
-                            <Link to="/frq" style={{ marginLeft: "10px" }}>
-                                FRQ
+                            <a
+                                href="https://github.com/BianLee/opensourcecollage.com"
+                                target="_blank"
+                                style={{ marginLeft: "10px" }}
+                            >
+                                Contribute
+                            </a>
+                            <Link
+                                to="/management"
+                                style={{ marginLeft: "10px" }}
+                            >
+                                Management
                             </Link>
+                            {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
+                                FAQ
+                            </Link> */}
                             <Link
                                 to="/post"
                                 className="dod-button"
@@ -90,14 +100,13 @@ export default class AboutComponent extends React.Component {
                                 Bian is a Junior at Northwood High school. He is
                                 passionate about computer engineering and
                                 information technology. He believes in the
-                                importance of general education, and developed
-                                this platform for high school students to more
-                                easily access resources and opportunities in
-                                various fields of study. He aims to help
-                                students find their passion and connect them
-                                with numerous non-profits and other student
-                                organizations. He enjoys listening to music,
-                                watching musicals, and holds strong political
+                                importance of general education, and through
+                                developing Open Source Collage he aim to help
+                                high school students find their passion and
+                                connect them with numerous non-profits and other
+                                student organizations. He enjoys listening to
+                                and playing music (as a pianist & cellist),
+                                watching musicals, and he holds strong political
                                 beliefs. <br />
                                 <br />
                             </p>
@@ -166,7 +175,7 @@ export default class AboutComponent extends React.Component {
                             </p>
 
                             <div className="bio">
-                                <img src={NoPic}></img>
+                                <img src={RutvijHolay}></img>
                             </div>
                             <h1
                                 className="bio-heading"
@@ -184,18 +193,18 @@ export default class AboutComponent extends React.Component {
                                     fontFamiliy: "Giga Sans Light",
                                 }}
                             >
-                                Rutvij is a sophomore at Northwood High school.
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud ullamco
-                                laboris nisi ut aliquip ex ea commodo consequat.
-                                Duis aute irure dolor in reprehenderit in
-                                voluptate velit esse cillum dolore eu fugiat
-                                nulla pariatur. Excepteur sint occaecat
-                                cupidatat non proident, sunt in culpa qui
-                                officia deserunt mollit anim id est laborum.{" "}
-                                <br />
+                                Rutvij is a sophomore at Northwood High School.
+                                A seasoned political operative, Rutvij mainly
+                                serves as an Executive Committee member of
+                                Americans for Equality PAC, which seeks to
+                                ensure that all Americans have an equal
+                                opportunity for success when it comes to
+                                applying for college and for jobs. As CBDO of
+                                Open Source College, he hopes to use his
+                                expertise to bring new ideas and opportunities
+                                to high school students so that they may develop
+                                themselves, and help make a better world in the
+                                process. <br />
                                 <br />
                             </p>
 

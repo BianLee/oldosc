@@ -355,22 +355,25 @@ function NavBar(props) {
                     </h1>
                 </div>
                 <p></p>
-                <Link to="/about" style={{ marginLeft: "18px" }}>
-                    About
-                </Link>
-                <Link to="/blog" style={{ marginLeft: "10px" }}>
-                    Blog
-                </Link>
+                {/* <Link to="/blog" style={{ marginLeft: "10px" }}>
+                                Blog
+                </Link> */}
+                <a href="https://discord.gg/zPyjsCJ5Sn" target="_blank">
+                    Discord
+                </a>
                 <a
-                    href="https://discord.gg/zPyjsCJ5Sn"
+                    href="https://github.com/BianLee/opensourcecollage.com"
                     target="_blank"
                     style={{ marginLeft: "10px" }}
                 >
-                    Discord
+                    Contribute
                 </a>
-                <Link to="/frq" style={{ marginLeft: "10px" }}>
-                    FRQ
+                <Link to="/management" style={{ marginLeft: "10px" }}>
+                    Management
                 </Link>
+                {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
+                                FAQ
+                </Link> */}
                 <Link
                     to="/post"
                     className="dod-button"
