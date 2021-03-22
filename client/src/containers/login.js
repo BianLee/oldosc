@@ -334,7 +334,15 @@ export default class LoginFirstFrame extends React.Component {
                                 Post
                             </Link>
                         </header>
-                        <main data-grid-area="main">
+                        <main
+                            data-grid-area="main"
+                            style={{
+                                backgroundColor: "#f5f5f5",
+                                borderStyle: "solid",
+                                borderColor: "white",
+                                borderWidth: "10px",
+                            }}
+                        >
                             {this.state.loggedIn == "yes" ? (
                                 <>
                                     <h2 className="dod-heading-2 dod-stack-24">
@@ -400,7 +408,7 @@ export default class LoginFirstFrame extends React.Component {
                                                     htmlFor="url"
                                                     className="dod-label  dod-stack-4"
                                                 >
-                                                    Zoom Link
+                                                    Zoom or Website Link
                                                 </label>
                                                 <input
                                                     type="text"
@@ -599,13 +607,6 @@ export default class LoginFirstFrame extends React.Component {
                                                 <label htmlFor="name"></label>
                                             )}
                                             <br></br>
-                                            <p>
-                                                Please wait a moment before your
-                                                post is updated. Spammy or
-                                                inappropriate will be removed,
-                                                and your account will result in
-                                                permanent ban.
-                                            </p>
                                             <button
                                                 type="submit"
                                                 className="dod-button-secondary"
