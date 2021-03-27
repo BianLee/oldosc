@@ -29,6 +29,7 @@ export default class HomeMainComponent extends React.Component {
             posts: [],
             showMessage: false,
             message: "Apply filter",
+            messageTwo: "Sort by",
 
             permDate: "",
             permDescription: "",
@@ -660,7 +661,7 @@ class PostDisplay extends React.Component {
         this.state = {
             showMessage: false,
             message: "Apply filter",
-
+            messageTwo: "Sort by",
             permId: "",
 
             // categories selected in the filtering
@@ -680,6 +681,21 @@ class PostDisplay extends React.Component {
         } else {
             this.setState({
                 message: "Apply filter",
+            });
+        }
+    };
+
+    _showMessageTwo = (bool, e) => {
+        this.setState({
+            showMessageTwo: bool,
+        });
+        if (bool) {
+            this.setState({
+                messageTwo: "Collapse sort",
+            });
+        } else {
+            this.setState({
+                messageTwo: "Sort by",
             });
         }
     };
@@ -717,6 +733,7 @@ class PostDisplay extends React.Component {
     };
 
     filterChanged = (e) => {
+        console.log("hello");
         // don't keep posts selected after filters change because then a post might
         // be selected that isn't being shown
         this.unselectPost();
@@ -764,17 +781,29 @@ class PostDisplay extends React.Component {
         );
     };
 
+    filterByLatestPosts = (e) => {
+        var data = this.props.posts.reverse();
+        this.setState({
+            posts: data,
+        });
+    };
+
+    filterByOldestPosts = (e) => {
+        var data = this.props.posts.reverse();
+        this.setState({
+            posts: data,
+        });
+    };
+
     render() {
         return this.props.posts != "" ? (
             <main data-grid-area="main">
                 {/* <h2 className="dod-heading-2 dod-stack-24">Upcoming events!</h2> */}
-
                 <PostGrid
                     posts={this.props.posts.filter(this.shouldInclude)}
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
                 />
-
                 <p
                     style={{
                         marginLeft: "20px",
@@ -792,6 +821,20 @@ class PostDisplay extends React.Component {
                     )}
                 >
                     {this.state.message}
+                </a>{" "}
+                {"\u00A0"}
+                {"\u00A0"}
+                <a
+                    style={{
+                        cursor: "pointer",
+                        display: "inline",
+                    }}
+                    onClick={this._showMessageTwo.bind(
+                        null,
+                        !this.state.showMessageTwo
+                    )}
+                >
+                    {this.state.messageTwo}
                 </a>
                 <>
                     <div
@@ -802,6 +845,39 @@ class PostDisplay extends React.Component {
                         <br></br>
                         <br></br>
                         <FilterBoxes onChange={this.filterChanged} />
+                    </div>
+                </>
+                <>
+                    <div
+                        style={{
+                            display: this.state.showMessageTwo
+                                ? "inline"
+                                : "none",
+                        }}
+                    >
+                        <br></br>
+                        <br></br>
+                        <>
+                            <label>
+                                <input
+                                    name="test2"
+                                    type="radio"
+                                    onChange={this.filterByLatestPosts}
+                                    defaultChecked
+                                />
+                                Latest posts
+                            </label>
+                            {"\u00A0"}
+                            {"\u00A0"}
+                            <label>
+                                <input
+                                    name="test2"
+                                    type="radio"
+                                    onChange={this.filterByOldestPosts}
+                                />
+                                Oldest posts
+                            </label>
+                        </>
                     </div>
                 </>
             </main>
@@ -892,6 +968,17 @@ function FilterCheckbox(props) {
     return (
         <>
             <input id={props.id} type="checkbox" onChange={props.onChange} />
+            <label htmlFor={props.id}>{props.text}</label>
+            {"\u00A0"}
+            {"\u00A0"}
+        </>
+    );
+}
+
+function FilterCheckboxTwo(props) {
+    return (
+        <>
+            <input id={props.id} type="checkbox" />
             <label htmlFor={props.id}>{props.text}</label>
             {"\u00A0"}
             {"\u00A0"}
