@@ -342,7 +342,7 @@ strong {
     margin-top: 18px !important;
     display: inline-block;
     word-break: break-word;
-    height: 205px;
+    height: 222px;
     font-style: "Montserrat" !important;
 }
 @media (max-width: 1000px) {
@@ -359,7 +359,7 @@ strong {
         margin-top: 18px !important;
         display: inline-block;
         word-break: break-word;
-        height: 425px;
+        height: 560px;
     }
     .dod-card p {
         font-family: "Fira Sans", sans-serif;
@@ -407,6 +407,34 @@ strong {
 }
 #humanities {
     background-color: #e4dddd !important;
+}
+
+#mathborder {
+    border: 6px solid #f3e6d8;
+}
+#physicsborder {
+    border: 6px solid #eeeecf;
+}
+#csborder {
+    border: 6px solid #bad0e6;
+}
+#engineeringborder {
+    border: 6px solid #dbd0e4;
+}
+#chemistryborder {
+    border: 6px solid #cccddf;
+}
+#biologyborder {
+    border: 6px solid #c0e4c4;
+}
+#musicborder {
+    border: 6px solid #e6cbd6;
+}
+#otherborder {
+    border: 6px solid #eee;
+}
+#humanitiesborder {
+    border: 6px solid #e4dddd;
 }
 
 .dod-card:hover {

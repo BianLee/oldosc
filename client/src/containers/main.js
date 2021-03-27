@@ -396,7 +396,11 @@ function NavBar(props) {
 function PostExtraInfo(props) {
     return (
         <>
-            <main className="eventdesc" data-grid-area="main">
+            <main
+                className="eventdesc"
+                data-grid-area="main"
+                id={"" + props.category + "border"}
+            >
                 <b>
                     <p
                         style={{
@@ -464,7 +468,65 @@ function PostExtraInfo(props) {
  */
 function AboutUsBox(props) {
     return (
-        <main className="eventdesc" data-grid-area="main">
+        <main
+            className="eventdesc"
+            data-grid-area="main"
+            style={{
+                borderColor: "#bad0e6 ",
+                borderStyle: "solid",
+                borderWidth: "6px",
+            }}
+        >
+            <p
+                style={{
+                    fontSize: "1rem",
+                    fontWeight: "lighter",
+                    lineHeight: "25px",
+                    marginBottom: "10px",
+                    fontFamiliy: "Giga Sans Light",
+                }}
+            >
+                <i>
+                    Lost in the midst of a bustling square inside an ever
+                    tightening storm of tormenting solitude, you rush to the
+                    scurrying crowds to catch a trace of that passionate
+                    intensity, a whiff of that flashing scent of new
+                    opportunity…
+                </i>
+            </p>
+            <p
+                style={{
+                    fontSize: "1.3rem",
+                    fontWeight: "lighter",
+                    lineHeight: "25px",
+                    marginBottom: "10px",
+                    fontFamiliy: "Giga Sans Light",
+                }}
+            >
+                <span style={{ color: "#00008B" }}>
+                    Okay, that was maybe a little too dramatic, but as students,
+                    it is easy to feel lost in a myriad of opportunities and
+                    finding the right passion.{" "}
+                </span>
+                <span style={{ color: "#ad0778" }}>
+                    Open Source Collage is a user-friendly platform designed to
+                    help students develop their passion and discover new
+                    opportunities through providing a search mechanism for
+                    events, lectures, scholarships, competitions, and
+                    organizations you can get involved with.
+                </span>{" "}
+                <span style={{ color: "#00008B" }}>
+                    It also allows you to share your own events upon creating an
+                    account, which will help you and your organization connect
+                    with thousands of others in all parts of the country. Open
+                    Source Collage also leads an effort on its own to bring
+                    useful resources to students through facilitating new
+                    connections between students and organizations, and through
+                    the “featured organization” page, which is reserved for most
+                    highly valuable opportunities and organizations.
+                </span>
+            </p>
+            {/* 
             <p
                 style={{
                     fontSize: "1.5rem",
@@ -488,7 +550,7 @@ function AboutUsBox(props) {
                 }}
             >
                 Open Source Collage is a platform...
-            </p>
+            </p>*/}
         </main>
     );
 }
