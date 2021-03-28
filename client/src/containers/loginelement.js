@@ -27,6 +27,7 @@ export function LoginElementContainer(props) {
                 autoFocus
                 required
                 value={email}
+                style={{ outline: "none" }}
                 onChange={(e) => setEmail(e.target.value)}
             />
 
@@ -36,6 +37,7 @@ export function LoginElementContainer(props) {
                 type="password"
                 required
                 value={password}
+                style={{ outline: "none" }}
                 onChange={(e) => setPassword(e.target.value)}
             />
 
@@ -43,13 +45,14 @@ export function LoginElementContainer(props) {
                 <></>
             ) : (
                 <>
-                    <LoginElement.Label>Organization Name</LoginElement.Label>
+                    <LoginElement.Label>Name</LoginElement.Label>
                     <input
                         className="acc-input"
                         type="text"
                         autoFocus
                         required
                         value={username}
+                        style={{ outline: "none" }}
                         onChange={(e) => setUsername(e.target.value)}
                     />{" "}
                 </>

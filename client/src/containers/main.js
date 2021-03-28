@@ -691,7 +691,7 @@ class PostGrid extends React.Component {
                     }}
                     onClick={this.scrollPrev}
                 >
-                    <b>← Prev</b>
+                    ← Prev
                 </a>
                 <a
                     style={{
@@ -701,7 +701,7 @@ class PostGrid extends React.Component {
                     }}
                     onClick={this.scrollNext}
                 >
-                    <b>Next →</b>
+                    Next →
                 </a>
             </>
         );

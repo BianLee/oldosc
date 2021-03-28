@@ -225,7 +225,7 @@ strong {
 }
 .bio-heading {
     font-family: "Spartan", sans-serif;
-    font-weight: 600 !important;
+    font-weight: 200 !important;
     user-select: none;
     font-size: 22px;
     line-height: 42px;
@@ -345,12 +345,20 @@ strong {
     height: 222px;
     font-style: "Montserrat" !important;
 }
+@media (max-width: 1200px) {
+    .eventdesc {
+        margin-top: 18px !important;
+        display: inline-block;
+        word-break: break-word;
+        height: 260px;
+    }
+}
 @media (max-width: 1000px) {
     .eventdesc {
         margin-top: 18px !important;
         display: inline-block;
         word-break: break-word;
-        height: 360px;
+        height: 380px;
     }
 }
 
@@ -359,7 +367,7 @@ strong {
         margin-top: 18px !important;
         display: inline-block;
         word-break: break-word;
-        height: 560px;
+        height: 600px;
     }
     .dod-card p {
         font-family: "Fira Sans", sans-serif;
@@ -442,6 +450,13 @@ strong {
     cursor: pointer;
     filter: brightness(0.95);
     /* border-style: solid; */
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container,
+.react-datepicker__input-container input {
+    border-style: none;
+    outline: none;
 }
 
 .dod-layout-default {

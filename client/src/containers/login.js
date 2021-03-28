@@ -171,6 +171,12 @@ export default class LoginFirstFrame extends React.Component {
     };
     handleCategoryCount = (e) => {
         // console.log(this.state.category);
+
+        this.setState({
+            category: [e.target.dataset.name],
+        });
+
+        /*
         if (this.state.categoryCount == 2) {
             this.setState({ alert: false });
         }
@@ -204,34 +210,9 @@ export default class LoginFirstFrame extends React.Component {
                     // console.log(this.state.category);
                 }
             );
-        }
+        }*/
 
         {
-            /*
-        console.log(this.state.category); 
-        if (this.state.categoryCount == 3) {
-           this.setState({alert: false}) 
-        }
-        if (e.target.checked) {
-            if (this.state.categoryCount > 2) {
-                e.preventDefault(); 
-                this.setState({alert: true}) 
-            }
-            else {
-                this.setState({categoryCount: this.state.categoryCount + 1})
-                this.setState({ category: [...this.state.category, e.target.id] }, function () {
-                    console.log(this.state.category);
-                });
-            }
-        }
-        else {
-            this.setState({categoryCount: this.state.categoryCount - 1})
-            this.setState({category: this.state.category.filter(item => item !== e.target.id)}, function() {
-                console.log(this.state.category); 
-            })
-
-        }
-        */
         }
     };
 
@@ -328,12 +309,16 @@ export default class LoginFirstFrame extends React.Component {
                                 Post
                             </Link>
                         </header>
-                        <main data-grid-area="main">
+                        <main
+                            data-grid-area="main"
+                            style={{
+                                borderColor: "#bad0e6 ",
+                                borderStyle: "solid",
+                                borderWidth: "6px",
+                            }}
+                        >
                             {this.state.loggedIn == "yes" ? (
                                 <>
-                                    <h2 className="dod-heading-2 dod-stack-24">
-                                        Promote your virtual event!
-                                    </h2>
                                     <article className="dod-article dod-flow">
                                         <form
                                             name="Submit a Dog"
@@ -364,6 +349,7 @@ export default class LoginFirstFrame extends React.Component {
                                                     onChange={
                                                         this.handleTitleLimit
                                                     }
+                                                    style={{ outline: "none" }}
                                                     required
                                                 />
                                             </div>
@@ -404,6 +390,7 @@ export default class LoginFirstFrame extends React.Component {
                                                     onChange={
                                                         this.handleZoomLink
                                                     }
+                                                    style={{ outline: "none" }}
                                                     className="dod-input"
                                                     required
                                                 />
@@ -425,6 +412,7 @@ export default class LoginFirstFrame extends React.Component {
                                                         this
                                                             .handleDescriptionLimit
                                                     }
+                                                    style={{ outline: "none" }}
                                                     defaultValue={""}
                                                 />
                                                 {this.state.descriptionLimit >
@@ -448,139 +436,133 @@ export default class LoginFirstFrame extends React.Component {
                                                     </label>
                                                 )}
                                             </div>
-                                            <label
-                                                htmlFor="bio"
-                                                className="dod-label  dod-stack-4"
-                                            >
-                                                Event Categorization
-                                            </label>
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="mathsButton"
-                                                data-name="math"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="mathsButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="mathsButton"
+                                                    data-name="math"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Math
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-
-                                            <input
-                                                type="checkbox"
-                                                id="physicssButton"
-                                                data-name="physics"
-                                                disabled={this.state.disabled}
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="physicssButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="physicssButton"
+                                                    data-name="physics"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Physics
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-
-                                            <input
-                                                type="checkbox"
-                                                id="chemistrysButton"
-                                                data-name="chemistry"
-                                                disabled={this.state.disabled}
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="chemistrysButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="chemistrysButton"
+                                                    data-name="chemistry"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Chemistry
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-
-                                            <input
-                                                type="checkbox"
-                                                id="biologyButton"
-                                                data-name="biology"
-                                                disabled={this.state.disabled}
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="biologyButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="biologyButton"
+                                                    data-name="biology"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Biology
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="computerscienceButton"
-                                                data-name="cs"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="computerscienceButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="computerscienceButton"
+                                                    data-name="cs"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 CS
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="engineeringButton"
-                                                data-name="engineering"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="engineeringButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="engineeringButton"
+                                                    data-name="engineering"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Engineering
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="humanitiesButton"
-                                                data-name="humanities"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="humanitiesButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="humanitiesButton"
+                                                    data-name="humanities"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Humanities
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="musicsButton"
-                                                data-name="music"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="musicsButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="musicsButton"
+                                                    data-name="music"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Music
                                             </label>
                                             {"\u00A0"}
                                             {"\u00A0"}
-                                            <input
-                                                type="checkbox"
-                                                disabled={this.state.disabled}
-                                                id="otherButton"
-                                                data-name="other"
-                                                onClick={
-                                                    this.handleCategoryCount
-                                                }
-                                            />
-                                            <label htmlFor="otherButton">
+                                            <label>
+                                                <input
+                                                    name="test2"
+                                                    type="radio"
+                                                    id="otherButton"
+                                                    data-name="other"
+                                                    onChange={
+                                                        this.handleCategoryCount
+                                                    }
+                                                />
                                                 Other
                                             </label>
+                                            {"\u00A0"}
+                                            {"\u00A0"}
+
                                             {this.state.alert == true ? (
                                                 <label htmlFor="name">
                                                     <b>
@@ -592,6 +574,7 @@ export default class LoginFirstFrame extends React.Component {
                                             ) : (
                                                 <label htmlFor="name"></label>
                                             )}
+                                            <br></br>
                                             <br></br>
                                             <button
                                                 type="submit"
