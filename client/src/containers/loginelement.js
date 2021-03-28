@@ -58,7 +58,7 @@ export function LoginElementContainer(props) {
                 </>
             )}
 
-            <LoginElement.ButtonContainer width="100%">
+            <LoginElement.ButtonContainer width="80%">
                 <div className="btnContainer">
                     {!hasAccount ? (
                         <>
@@ -68,8 +68,12 @@ export function LoginElementContainer(props) {
                             >
                                 Sign In
                             </button>
+                            <div></div>
+                            <br></br>
                             <p className="errorMsg">{emailError}</p>
+                            <div></div>
                             <p className="errorMsg">{passwordError}</p>
+                            <div></div>
                             <p className="signP">
                                 <span
                                     className="signSpan"
@@ -89,8 +93,12 @@ export function LoginElementContainer(props) {
                             >
                                 Sign Up
                             </button>
+                            <div></div>
+                            <br></br>
                             <p className="errorMsg">{passwordError}</p>
+                            <div></div>
                             <p className="errorMsg">{emailError}</p>
+                            <div></div>
                             <p className="signP">
                                 <span
                                     className="signSpan"

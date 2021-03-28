@@ -62,11 +62,7 @@ export default class FAQComponent extends React.Component {
                             {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
                             </Link> */}
-                            <Link
-                                to="/post"
-                                className="dod-button"
-                                style={{ marginLeft: "10px" }}
-                            >
+                            <Link to="/post" style={{ marginLeft: "10px" }}>
                                 Post
                             </Link>
                         </header>

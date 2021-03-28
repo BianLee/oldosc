@@ -142,6 +142,108 @@ strong {
         width: 50%;
     }
 }
+.brand {
+    color: white;
+    margin: 14px 0;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+@media (max-width: 980px) {
+    .brand {
+        font-size: 18px;
+    }
+}
+@media (min-width: 980px) and (max-width: 1400px) {
+    .brand {
+        font-size: 16px;
+    }
+}
+
+.brand {
+    color: white;
+    margin: 14px 0;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    line-height: 1.5;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    font-family: "Source Sans Pro", sans-serif;
+}
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+}
+@media (max-width: 980px) {
+    .brand {
+        font-size: 18px;
+    }
+}
+@media (min-width: 980px) and (max-width: 1400px) {
+    .brand {
+        font-size: 16px;
+    }
+}
+
+.errorMsg {
+    text-align: left !important;
+    color: #9c066c;
+    float: left !important;
+    padding-top: 10px;
+    font-size: 20px;
+}
+
+.signSpan {
+    margin-left: 8px;
+    color: black;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.signP {
+    padding-top: 10px;
+    float: right;
+    text-align: right;
+}
+
+.authButton {
+    box-sizing: content-box;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    width: 78%;
+    padding: 15px 0;
+    color: black;
+    font-size: 20px;
+    background: #bad0e6;
+    cursor: pointer;
+}
+.authButton:hover {
+    color: white;
+    background: #869eb7;
+}
 
 @media (max-width: 600px) {
     .bio {
@@ -277,7 +379,7 @@ strong {
 [class*="dod-button"] {
     font-family: "Fira Sans", sans-serif;
     display: inline-block;
-    background-color: #041e42;
+    background-color: #745eed;
     color: white;
     border-radius: 0.25rem;
     font-size: 1.25rem;
@@ -367,7 +469,7 @@ strong {
         margin-top: 18px !important;
         display: inline-block;
         word-break: break-word;
-        height: 600px;
+        height: 615px;
     }
     .dod-card p {
         font-family: "Fira Sans", sans-serif;
@@ -377,7 +479,7 @@ strong {
     [class*="dod-button"] {
         font-family: "Fira Sans", sans-serif;
         display: inline-block;
-        background-color: #041e42;
+        background-color: #745eed; /* #041e42 */
         color: white;
         border-radius: 0.25rem;
         font-size: 1rem;

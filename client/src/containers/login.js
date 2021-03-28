@@ -39,6 +39,7 @@ export default class LoginFirstFrame extends React.Component {
             permID: "",
 
             loggedIn: "",
+            errorMessage: "",
         };
     }
 
@@ -232,19 +233,33 @@ export default class LoginFirstFrame extends React.Component {
         // console.log(message);
         //  const path = '/api/postMessage';
         // https://bianbackend.herokuapp.com/api/postMessage
-        axios
-            .post(
-                "https://server-r8ug5ernl-bianlee.vercel.app/api/postMessage",
-                message
-            )
-            .then((res) => this.getPost())
-            .catch((error) => {
-                console.log("Error!");
+
+        if (
+            this.state.titleText.length > 0 &&
+            this.state.zoomLink.length > 0 &&
+            this.state.description.length > 0 &&
+            this.state.category.length > 0
+        ) {
+            axios
+                .post(
+                    "https://server-r8ug5ernl-bianlee.vercel.app/api/postMessage",
+                    message
+                )
+                .then(
+                    (res) => this.props.history.push("/"),
+                    console.log("page update?"),
+                    this.getPost(),
+                    this.componentDidMount()
+                )
+                .catch((error) => {
+                    console.log("Error!");
+                });
+        } else {
+            console.log("missing something");
+            this.setState({
+                errorMessage: "Please make sure all fields are completed",
             });
-        this.getPost();
-        console.log("page update?");
-        this.props.history.push("/");
-        this.componentDidMount();
+        }
     }
     render() {
         return (
@@ -301,25 +316,22 @@ export default class LoginFirstFrame extends React.Component {
                             {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
                             </Link> */}
-                            <Link
-                                to="/post"
-                                className="dod-button"
-                                style={{ marginLeft: "10px" }}
-                            >
-                                Post
+                            <Link to="/post" style={{ marginLeft: "10px" }}>
+                                <u>Post</u>
                             </Link>
                         </header>
                         <main
                             data-grid-area="main"
                             style={{
-                                borderColor: "#bad0e6 ",
-                                borderStyle: "solid",
-                                borderWidth: "6px",
+                                backgroundColor: "#fcfcfc",
                             }}
                         >
                             {this.state.loggedIn == "yes" ? (
                                 <>
                                     <article className="dod-article dod-flow">
+                                        <h2 className="dod-heading-2 dod-stack-24">
+                                            Share an event!
+                                        </h2>
                                         <form
                                             name="Submit a Dog"
                                             action="/success"
@@ -335,6 +347,7 @@ export default class LoginFirstFrame extends React.Component {
                                                 <label
                                                     htmlFor="name"
                                                     className="dod-label dod-stack-4"
+                                                    style={{ color: "#9c066c" }}
                                                 >
                                                     Event Title (40 characters
                                                     max)
@@ -357,8 +370,9 @@ export default class LoginFirstFrame extends React.Component {
                                                 <label
                                                     htmlFor="url"
                                                     className="dod-label  dod-stack-4"
+                                                    style={{ color: "#1b4d94" }}
                                                 >
-                                                    Event Date
+                                                    Event Date (Click to change)
                                                 </label>
                                                 <div>
                                                     <div>
@@ -379,6 +393,7 @@ export default class LoginFirstFrame extends React.Component {
                                                 <label
                                                     htmlFor="url"
                                                     className="dod-label  dod-stack-4"
+                                                    style={{ color: "#9c066c" }}
                                                 >
                                                     Zoom or Website Link
                                                 </label>
@@ -399,6 +414,7 @@ export default class LoginFirstFrame extends React.Component {
                                                 <label
                                                     htmlFor="bio"
                                                     className="dod-label  dod-stack-4"
+                                                    style={{ color: "#1b4d94" }}
                                                 >
                                                     Event Description (500
                                                     characters max)
@@ -560,9 +576,6 @@ export default class LoginFirstFrame extends React.Component {
                                                 />
                                                 Other
                                             </label>
-                                            {"\u00A0"}
-                                            {"\u00A0"}
-
                                             {this.state.alert == true ? (
                                                 <label htmlFor="name">
                                                     <b>
@@ -574,15 +587,25 @@ export default class LoginFirstFrame extends React.Component {
                                             ) : (
                                                 <label htmlFor="name"></label>
                                             )}
-                                            <br></br>
-                                            <br></br>
+                                            <br />
                                             <button
+                                                class="dod-button"
                                                 type="submit"
-                                                className="dod-button-secondary"
                                                 onClick={this.onSubmit}
+                                                style={{ marginTop: "20px" }}
                                             >
-                                                Post!
+                                                Post
                                             </button>
+                                            <p
+                                                style={{
+                                                    display: "inline",
+                                                    color: "#9c066c",
+                                                }}
+                                            >
+                                                {"\u00A0"}
+                                                {"\u00A0"}
+                                                {this.state.errorMessage}
+                                            </p>
                                         </form>
                                     </article>
                                 </>
@@ -594,7 +617,10 @@ export default class LoginFirstFrame extends React.Component {
                         </main>
                         <main
                             data-grid-area="main"
-                            style={{ marginTop: "15px" }}
+                            style={{
+                                marginTop: "15px",
+                                backgroundColor: "#fcfcfc",
+                            }}
                         >
                             <center>
                                 <LoginSetupContainer />

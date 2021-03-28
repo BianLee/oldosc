@@ -26,13 +26,13 @@ export function Hero(props) {
     return (
         <>
             <div>
-                <p>{welcome}</p>
+                {/* <p>{welcome}</p>
                 <h1>{username}</h1>
                 <br></br>
                 <p>{email}</p>
                 <p>{uid}</p>
-                <br></br>
-                <button className="showMe" onClick={handleLogout}>
+                <br></br> */}
+                <button className="authButton" onClick={handleLogout}>
                     Logout
                 </button>
             </div>

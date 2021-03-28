@@ -369,11 +369,7 @@ function NavBar(props) {
                 {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
                 </Link> */}
-                <Link
-                    to="/post"
-                    className="dod-button"
-                    style={{ marginLeft: "10px" }}
-                >
+                <Link to="/post" style={{ marginLeft: "10px" }}>
                     Post
                 </Link>
             </header>
@@ -505,8 +501,7 @@ function AboutUsBox(props) {
             >
                 <span style={{ color: "#00008B" }}>
                     Okay, that was maybe a little too dramatic, but as students,
-                    it is easy to feel lost in a myriad of opportunities and
-                    finding the right passion.{" "}
+                    it is easy to feel lost in a myriad of opportunities.{" "}
                 </span>
                 <span style={{ color: "#ad0778" }}>
                     Open Source Collage is a user-friendly platform designed to
