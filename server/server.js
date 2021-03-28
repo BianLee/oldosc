@@ -1,14 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+var dotenv = require('dotenv');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 const apiRouter = require("./routes/api");
 
+dotenv.config();
+
 mongoose.connect(
     process.env.MONGODB_URI ||
-        "mongodb+srv://bostonlobstergang:climbpg0326@cluster0.plwnl.mongodb.net/cluster0?retryWrites=true&w=majority",
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,

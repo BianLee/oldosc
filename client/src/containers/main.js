@@ -53,7 +53,7 @@ export default class HomeMainComponent extends React.Component {
     getPost = () => {
         // https://bianbackend.herokuapp.com/api/getMessage
         axios
-            .get("https://server-r8ug5ernl-bianlee.vercel.app/api/getMessage")
+            .get("https://server-opal-alpha.vercel.app/api/getMessage")
             .then((response) => {
                 const data = response.data.reverse();
                 this.setState({ posts: data });
@@ -250,7 +250,7 @@ export default class HomeMainComponent extends React.Component {
         // https://bianbackend.herokuapp.com/api/postMessage
         axios
             .post(
-                "https://server-r8ug5ernl-bianlee.vercel.app/api/postMessage",
+                "https://server-opal-alpha.vercel.app/api/postMessage",
                 message
             )
             .then((res) => console.log(res.data))

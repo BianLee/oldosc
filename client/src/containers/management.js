@@ -222,32 +222,6 @@ export default class ManagementComponent extends React.Component {
                                 <br />
                             </p>
                         </main>
-
-                        <footer data-grid-area="footer">
-                            <br></br>
-                            <span
-                                style={{
-                                    textDecoration: "none",
-                                    fontSize: "25px",
-                                }}
-                            >
-                                OSC+ ❤ Open Source:
-                                <a
-                                    href="https://github.com/bianlee/opensourcecollage.com"
-                                    target="_blank"
-                                    style={{
-                                        textDecoration: "none",
-                                        fontSize: "25px",
-                                    }}
-                                >
-                                    {"\u00A0"}
-                                    <u>Become a contributor today!</u>{" "}
-                                </a>
-                            </span>
-                            <br />
-                            <br />
-                            <br />
-                        </footer>
                     </section>
                 </div>
             </>

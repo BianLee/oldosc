@@ -75,7 +75,7 @@ export default class LoginFirstFrame extends React.Component {
     getPost = () => {
         // https://bianbackend.herokuapp.com/api/getMessage
         axios
-            .get("https://server-r8ug5ernl-bianlee.vercel.app/api/getMessage")
+            .get("https://server-opal-alpha.vercel.app/api/getMessage")
             .then((response) => {
                 const data = response.data;
                 this.setState({ posts: data });
@@ -242,7 +242,7 @@ export default class LoginFirstFrame extends React.Component {
         ) {
             axios
                 .post(
-                    "https://server-r8ug5ernl-bianlee.vercel.app/api/postMessage",
+                    "https://server-opal-alpha.vercel.app/api/postMessage",
                     message
                 )
                 .then(
@@ -626,31 +626,6 @@ export default class LoginFirstFrame extends React.Component {
                                 <LoginSetupContainer />
                             </center>
                         </main>
-                        <footer data-grid-area="footer">
-                            <br></br>
-                            <span
-                                style={{
-                                    textDecoration: "none",
-                                    fontSize: "25px",
-                                }}
-                            >
-                                OSC+ ❤ Open Source:
-                                <a
-                                    href="https://github.com/bianlee/opensourcecollage.com"
-                                    target="_blank"
-                                    style={{
-                                        textDecoration: "none",
-                                        fontSize: "25px",
-                                    }}
-                                >
-                                    {"\u00A0"}
-                                    <u>Become a contributor today!</u>{" "}
-                                </a>
-                            </span>
-                            <br />
-                            <br />
-                            <br />
-                        </footer>
                     </section>
                 </div>
             </>
