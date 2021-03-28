@@ -29,3 +29,8 @@ To serve locally, run `npm start`. It will serve on `localhost:3000`.
 `/server/routes/api.js` outlines the API Endpoint and routes URL directory for GET and POST HTTP methods.
 
 It is not required to start the server locally, because it initiates server connection with one served on the cloud (Vercel). To serve it locally and use the local server connection instead, modify `/client/src/containers/main.js` and replace current Vercel Endpoint URL to`localhost:5000`. Then, start the server by going to `/server` and running `nodemon server.js`. (While it is possible to run `npm start`, nodemon makes development much more efficient).
+
+## Contributors
+
+Bian Lee (CEO)
+Pranav Rajpal (CTO)

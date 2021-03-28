@@ -320,7 +320,31 @@ export default class HomeMainComponent extends React.Component {
                 })}   
                 */}
                         <FeaturedOrg />
-                        <footer data-grid-area="footer"></footer>
+                        <footer data-grid-area="footer">
+                            <br></br>
+                            <span
+                                style={{
+                                    textDecoration: "none",
+                                    fontSize: "25px",
+                                }}
+                            >
+                                OSC+ ❤ Open Source:
+                                <a
+                                    href="https://github.com/bianlee/opensourcecollage.com"
+                                    target="_blank"
+                                    style={{
+                                        textDecoration: "none",
+                                        fontSize: "25px",
+                                    }}
+                                >
+                                    {"\u00A0"}
+                                    <u>Become a contributor today!</u>{" "}
+                                </a>
+                            </span>
+                            <br />
+                            <br />
+                            <br />
+                        </footer>
                     </section>
                 </div>
             </>
@@ -500,7 +524,7 @@ function AboutUsBox(props) {
                 }}
             >
                 <span style={{ color: "#00008B" }}>
-                    Okay, that was maybe a little too dramatic, but as students,
+                    Okay, maybe that was a little too dramatic, but as students,
                     it is easy to feel lost in a myriad of opportunities.{" "}
                 </span>
                 <span style={{ color: "#ad0778" }}>
