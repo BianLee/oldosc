@@ -713,49 +713,89 @@ class PostGrid extends React.Component {
         }
     };
     // TODO: fix unique key property console error
-    render() {
-        const { posts, selectedId, onClick } = this.props;
-        console.log(this.state, this.props);
-        return (
-            <>
-                <div className="dod-media-grid dod-stack-15">
-                    {posts
-                        .slice(
-                            this.state.currentAmount - 16,
-                            this.state.currentAmount
-                        )
-                        .map((post) => (
-                            <Post
-                                post={post}
-                                selected={selectedId == post._id}
-                                onClick={onClick}
-                            />
-                        ))}
-                </div>
-                {/* Pagination here*/}
 
-                <br />
-                <a
-                    style={{
-                        cursor: "pointer",
-                        color: "purple",
-                    }}
-                    onClick={this.scrollPrev}
-                >
-                    ← Prev
-                </a>
-                <a
-                    style={{
-                        marginLeft: "20px",
-                        cursor: "pointer",
-                        color: "purple",
-                    }}
-                    onClick={this.scrollNext}
-                >
-                    Next →
-                </a>
-            </>
-        );
+    render() {
+        const { posts, selectedId, onClick, search } = this.props;
+        console.log(this.state, this.props);
+        if (search.length == 0) {
+            return (
+                <>
+                    <div className="dod-media-grid dod-stack-15">
+                        {posts
+                            .slice(
+                                this.state.currentAmount - 16,
+                                this.state.currentAmount
+                            )
+                            .map((post) => (
+                                <Post
+                                    post={post}
+                                    selected={selectedId == post._id}
+                                    onClick={onClick}
+                                />
+                            ))}
+                    </div>
+                    <br />
+                    <a
+                        style={{
+                            cursor: "pointer",
+                            color: "purple",
+                        }}
+                        onClick={this.scrollPrev}
+                    >
+                        ← Prev
+                    </a>
+                    <a
+                        style={{
+                            marginLeft: "20px",
+                            cursor: "pointer",
+                            color: "purple",
+                        }}
+                        onClick={this.scrollNext}
+                    >
+                        Next →
+                    </a>
+                </>
+            );
+        } else {
+            return (
+                <>
+                    <div className="dod-media-grid dod-stack-15">
+                        {search
+                            .slice(
+                                this.state.currentAmount - 16,
+                                this.state.currentAmount
+                            )
+                            .map((post) => (
+                                <Post
+                                    post={post}
+                                    selected={selectedId == post._id}
+                                    onClick={onClick}
+                                />
+                            ))}
+                    </div>
+                    <br />
+                    <a
+                        style={{
+                            cursor: "pointer",
+                            color: "purple",
+                        }}
+                        onClick={this.scrollPrev}
+                    >
+                        ← Prev
+                    </a>
+                    <a
+                        style={{
+                            marginLeft: "20px",
+                            cursor: "pointer",
+                            color: "purple",
+                        }}
+                        onClick={this.scrollNext}
+                    >
+                        Next →
+                    </a>
+                </>
+            );
+        }
     }
 }
 
@@ -779,7 +819,7 @@ class PostDisplay extends React.Component {
             messageThree: "Search",
             permId: "",
             search: "",
-
+            searchEnabled: false,
             // categories selected in the filtering
             categories: [],
             // if any filter checkboxes are currently selected
@@ -930,15 +970,16 @@ class PostDisplay extends React.Component {
     searchKeyWord = (e) => {
         this.setState({
             search: e.target.value,
+            searchEnabled: true,
         });
         console.log(e.target.value);
         var data = this.props.posts.filter((p) => {
             return p.title.toLowerCase().includes(e.target.value.toLowerCase());
         });
         this.setState({
-            posts: data,
+            search: data,
         });
-        console.log(data);
+        console.log(this.state.search);
     };
 
     render() {
@@ -949,7 +990,7 @@ class PostDisplay extends React.Component {
                     posts={this.props.posts.filter(this.shouldInclude)}
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
-                    searchKeyWord={this.state.searchKeyWord}
+                    search={this.state.search}
                 />
                 <p
                     style={{
