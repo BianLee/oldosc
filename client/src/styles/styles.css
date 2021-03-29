@@ -206,6 +206,93 @@ strong {
     }
 }
 
+@media (max-width: 2000px) {
+    .icon-bar-container,
+    .icon-bar a {
+        display: block;
+    }
+}
+
+@media (max-width: 1400px) {
+    .icon-bar a,
+    .icon-bar-container {
+        display: none;
+    }
+}
+@media (max-width: 767px) {
+    .icon-bar-container {
+        visibility: hidden;
+    }
+}
+
+.blackLine {
+    border-left: thin solid #ff0000;
+    border-color: #eb648c;
+    border-style: solid;
+    height: 220px;
+    width: 1px;
+    margin-left: -21px;
+    margin-top: 34px;
+    border-radius: 20px;
+}
+.icon-bar {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 50;
+    visibility: visible;
+}
+.icon-bar-container {
+    margin-left: 20px;
+    padding-left: 8px;
+    height: 290px;
+    width: 87px;
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    z-index: 50;
+    visibility: visible;
+    border-radius: 20px;
+    background-color: white;
+    background-position: 28% 65%;
+    background-repeat: no-repeat;
+}
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 15px;
+    visibility: visible;
+    border-radius: 18px;
+    margin-left: 4.5px;
+}
+.icon-bar :hover {
+    color: white !important;
+}
+
+.github {
+    background: #24292e;
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+.discord {
+    background: #7289da;
+    color: white;
+    margin-bottom: 0.5em;
+}
+
+.instagram {
+    background: #c13584;
+    color: white;
+}
+
 .errorMsg {
     text-align: left !important;
     color: #9c066c;

@@ -30,6 +30,7 @@ export default class HomeMainComponent extends React.Component {
             showMessage: false,
             message: "Apply filter",
             messageTwo: "Sort by",
+            messageThree: "Search",
 
             permDate: "",
             permDescription: "",
@@ -273,6 +274,34 @@ export default class HomeMainComponent extends React.Component {
                     <title>Bian</title>
                     <link rel="alternate icon" href="/favicon.ico" />
                     <link rel="stylesheet" href="styles.css" />
+                    {/*
+                    <div className="icon-bar-container">
+                        <div className="blackLine" />
+                        <div className="icon-bar">
+                            <a
+                                href="https://github.com/BianLee/nhscyber.club"
+                                target="_blank"
+                                className="github"
+                            >
+                                <i className="fab fa-github fa-2x" />
+                            </a>
+                            <a
+                                href="https://discord.gg/K4sVMn8"
+                                target="_blank"
+                                className="discord"
+                            >
+                                <i className="fab fa-discord fa-2x" />
+                            </a>
+                            <a
+                                href="https://www.instagram.com/nhscybersecurity/"
+                                target="_blank"
+                                className="instagram"
+                            >
+                                <i className="fab fa-instagram fa-2x" />
+                            </a>
+                        </div>
+                    </div>
+                     */}
                     <section className="dod-layout-default">
                         <NavBar />
                         {/* 
@@ -320,6 +349,7 @@ export default class HomeMainComponent extends React.Component {
                 })}   
                 */}
                         <FeaturedOrg />
+                        {/* 
                         <footer data-grid-area="footer">
                             <br></br>
                             <span
@@ -328,7 +358,6 @@ export default class HomeMainComponent extends React.Component {
                                     fontSize: "25px",
                                 }}
                             >
-                                OSC+ ❤ Open Source:
                                 <a
                                     href="https://github.com/bianlee/opensourcecollage.com"
                                     target="_blank"
@@ -338,14 +367,17 @@ export default class HomeMainComponent extends React.Component {
                                     }}
                                 >
                                     {"\u00A0"}
-                                    <u>Become a contributor today!</u>{" "}
+                                    OSC+ ❤ Open Source: Become a contributor
+                                    today!{" "}
                                 </a>
                             </span>
                             <br />
                             <br />
                             <br />
-                        </footer>
+                        </footer>*/}
                     </section>
+                    <br />
+                    <br />
                 </div>
             </>
         );
@@ -739,16 +771,20 @@ class PostGrid extends React.Component {
 class PostDisplay extends React.Component {
     constructor() {
         super();
+        // this.searchKeyWord = this.searchKeyWord.bind(this);
         this.state = {
             showMessage: false,
             message: "Apply filter",
             messageTwo: "Sort by",
+            messageThree: "Search",
             permId: "",
+            search: "",
 
             // categories selected in the filtering
             categories: [],
             // if any filter checkboxes are currently selected
             filteringEnabled: false,
+            searchEnabled: false,
         };
     }
     _showMessage = (bool, e) => {
@@ -777,6 +813,21 @@ class PostDisplay extends React.Component {
         } else {
             this.setState({
                 messageTwo: "Sort by",
+            });
+        }
+    };
+
+    _showMessageThree = (bool, e) => {
+        this.setState({
+            showMessageThree: bool,
+        });
+        if (bool) {
+            this.setState({
+                messageThree: "Collapse search",
+            });
+        } else {
+            this.setState({
+                messageThree: "Search",
             });
         }
     };
@@ -876,6 +927,20 @@ class PostDisplay extends React.Component {
         });
     };
 
+    searchKeyWord = (e) => {
+        this.setState({
+            search: e.target.value,
+        });
+        console.log(e.target.value);
+        var data = this.props.posts.filter((p) => {
+            return p.title.toLowerCase().includes(e.target.value.toLowerCase());
+        });
+        this.setState({
+            posts: data,
+        });
+        console.log(data);
+    };
+
     render() {
         return this.props.posts != "" ? (
             <main data-grid-area="main">
@@ -884,6 +949,7 @@ class PostDisplay extends React.Component {
                     posts={this.props.posts.filter(this.shouldInclude)}
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
+                    searchKeyWord={this.state.searchKeyWord}
                 />
                 <p
                     style={{
@@ -916,6 +982,21 @@ class PostDisplay extends React.Component {
                     )}
                 >
                     {this.state.messageTwo}
+                </a>
+                {"\u00A0"}
+                {"\u00A0"}
+                {"\u00A0"}
+                <a
+                    style={{
+                        cursor: "pointer",
+                        display: "inline",
+                    }}
+                    onClick={this._showMessageThree.bind(
+                        null,
+                        !this.state.showMessageThree
+                    )}
+                >
+                    {this.state.messageThree}
                 </a>
                 <>
                     <div
@@ -959,6 +1040,29 @@ class PostDisplay extends React.Component {
                                 Oldest posts
                             </label>
                         </>
+                    </div>
+                </>
+                <>
+                    <div
+                        style={{
+                            display: this.state.showMessageThree
+                                ? "inline"
+                                : "none",
+                        }}
+                    >
+                        <br></br>
+                        <br></br>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Search function not complete yet"
+                            className="dod-input"
+                            style={{ outline: "none", width: "50%" }}
+                            onChange={this.searchKeyWord}
+                            autocomplete="off"
+                        />
+                        <br></br>
+                        {}
                     </div>
                 </>
             </main>
@@ -1049,17 +1153,6 @@ function FilterCheckbox(props) {
     return (
         <>
             <input id={props.id} type="checkbox" onChange={props.onChange} />
-            <label htmlFor={props.id}>{props.text}</label>
-            {"\u00A0"}
-            {"\u00A0"}
-        </>
-    );
-}
-
-function FilterCheckboxTwo(props) {
-    return (
-        <>
-            <input id={props.id} type="checkbox" />
             <label htmlFor={props.id}>{props.text}</label>
             {"\u00A0"}
             {"\u00A0"}
