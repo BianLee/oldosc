@@ -263,10 +263,8 @@ export default class LoginFirstFrame extends React.Component {
         }
     }
     render() {
-        const yesterday = moment().subtract(1, "day");
-        const disablePastDt = (current) => {
-            return current.isAfter(yesterday);
-        };
+        var d = new Date();
+        d.setMonth(d.getMonth() + 1);
         return (
             <>
                 <div>
@@ -390,6 +388,7 @@ export default class LoginFirstFrame extends React.Component {
                                                                     .onChangeDate
                                                             }
                                                             minDate={new Date()}
+                                                            maxDate={d}
                                                             required
                                                         />
                                                     </div>
