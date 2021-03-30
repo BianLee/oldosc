@@ -383,10 +383,15 @@ export default class HomeMainComponent extends React.Component {
         );
     }
 }
+
 /**
  * The navigation bar and logo at the top of the page
  */
 function NavBar(props) {
+    function refreshPage() {
+        window.location.reload(false);
+    }
+
     return (
         <>
             <header
@@ -400,7 +405,11 @@ function NavBar(props) {
                     >
                         <Link to="/">
                             <div className="sponsor">
-                                <img id="logo" src={logo}></img>
+                                <img
+                                    id="logo"
+                                    src={logo}
+                                    onClick={refreshPage}
+                                ></img>
                             </div>
                         </Link>
                     </h1>
