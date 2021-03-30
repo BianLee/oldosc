@@ -24,3 +24,4 @@ yarn-error.log*
 
 # This appears to be generated during npm start
 .eslintcache
+/.metadata/
