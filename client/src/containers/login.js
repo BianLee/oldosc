@@ -263,8 +263,8 @@ export default class LoginFirstFrame extends React.Component {
         }
     }
     render() {
-        var d = new Date();
-        d.setMonth(d.getMonth() + 1);
+        var maxDate = new Date();
+        maxDate.setMonth(maxDate.getMonth() + 1);
         return (
             <>
                 <div>
@@ -388,7 +388,7 @@ export default class LoginFirstFrame extends React.Component {
                                                                     .onChangeDate
                                                             }
                                                             minDate={new Date()}
-                                                            maxDate={d}
+                                                            maxDate={maxDate}
                                                             required
                                                         />
                                                     </div>
