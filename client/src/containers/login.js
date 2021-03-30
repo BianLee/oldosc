@@ -6,6 +6,7 @@ import { LoginSetupContainer } from "./loginsetup";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import firebase from "firebase";
 import logo from "../images/logo.png";
+import moment from "moment";
 export default class LoginFirstFrame extends React.Component {
     constructor() {
         super();
@@ -262,6 +263,10 @@ export default class LoginFirstFrame extends React.Component {
         }
     }
     render() {
+        const yesterday = moment().subtract(1, "day");
+        const disablePastDt = (current) => {
+            return current.isAfter(yesterday);
+        };
         return (
             <>
                 <div>
@@ -384,6 +389,7 @@ export default class LoginFirstFrame extends React.Component {
                                                                 this
                                                                     .onChangeDate
                                                             }
+                                                            minDate={new Date()}
                                                             required
                                                         />
                                                     </div>
