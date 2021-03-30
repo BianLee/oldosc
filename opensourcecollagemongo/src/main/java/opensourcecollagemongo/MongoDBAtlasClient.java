@@ -14,11 +14,14 @@ import org.bson.types.ObjectId;
 public class MongoDBAtlasClient {
 	public static void main(String[] args) {
 		MongoClientURI uri = new MongoClientURI(
-	  "mongodb+srv://bostonlobstergang:climbpg0326@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+	  "mongodb+srv://bostonlobstergang:<password>@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("cluster0");
 		MongoCollection<Document> collection = database.getCollection("messages");
-		collection.deleteOne(new Document("_id", new ObjectId("6062bc7d132c890008ef625f")));
+		// collection.deleteOne(new Document("date", "asdf"));
+		Bson filter = new Document("title", "asdf");
+		collection.deleteMany(filter); 
+		// collection.deleteMany(new Document("stock", "Brent Crude Futures", "limit" : { $gt : 48.88 })
 		/* MongoCollection<Document> collection = database.getCollection("messages");
 		Document query = new Document("_id", new ObjectId("60594f44e5455200091f76dc"));
         // Document result = collection.find(query).iterator().next();
