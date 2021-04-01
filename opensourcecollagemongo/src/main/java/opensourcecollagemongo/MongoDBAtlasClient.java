@@ -18,12 +18,17 @@ import org.bson.types.ObjectId;
 public class MongoDBAtlasClient {
 	public static void main(String[] args) {
 		MongoClientURI uri = new MongoClientURI(
-	  "mongodb+srv://bostonlobstergang:<password>@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+	  "mongodb+srv://bostonlobstergang:climbpg0326@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("cluster0");
 		MongoCollection<Document> collection = database.getCollection("messages");
-		collection.deleteOne(new Document("title", "1dayold"));
-		collection.deleteOne(new Document("title", "2days old"));
+		collection.deleteMany(new Document("title", "humanities"));
+		collection.deleteMany(new Document("title", "testing"));
+		collection.deleteMany(new Document("title", "d"));
+		
+		
+		
+		
 		// Bson filter = new Document("title", "asdf");
 		
 		collection.createIndex(Indexes.ascending("date"), new IndexOptions().expireAfter(1L, TimeUnit.DAYS));
