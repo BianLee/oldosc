@@ -317,6 +317,8 @@ export default class HomeMainComponent extends React.Component {
                             posts={this.state.posts}
                             onSelected={this.onSelected}
                             onUnselected={this.onUnselected}
+                            currentPlace={this.state.currentPlace}
+                            amountOfPages={this.state.amountOfPages}
                         />
                         {this.state.permTitle != "" &&
                         this.state.permCategory != "" ? (
@@ -682,8 +684,8 @@ function FeaturedOrg(props) {
  *  onClick: a function called whenever a post is clicked
  */
 class PostGrid extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         console.log("constructor", this.props);
         this.state = {
             currentAmount: 16,
@@ -696,10 +698,11 @@ class PostGrid extends React.Component {
         if (this.props.posts.length !== prevProps.posts.length) {
             // number of posts changed, probably because one of the filters changed, so we should
             // move back to the first page
-
+            const amountOfPages = Math.ceil(this.props.posts.length / 16);
             this.setState({
                 currentAmount: 16,
                 currentPlace: 1,
+                amountOfPages: amountOfPages,
             });
         }
     }
@@ -723,6 +726,17 @@ class PostGrid extends React.Component {
         }
     };
 
+    scrollNextTwo = (e) => {
+        const amountOfPages = Math.ceil(17 / 16);
+        if (this.state.currentPlace < amountOfPages) {
+            this.setState({
+                currentAmount: this.state.currentAmount + 16,
+                currentPlace: this.state.currentPlace + 1,
+            });
+            console.log("hello");
+        }
+    };
+
     render() {
         console.log(this.state.currentAmount);
         const {
@@ -734,6 +748,7 @@ class PostGrid extends React.Component {
         } = this.props;
         console.log(this.state, this.props);
         if (search.length == 0 && searchEnabled == false) {
+            const amountOfPages = Math.ceil(posts.length / 16);
             return (
                 <>
                     <div className="dod-media-grid dod-stack-15">
@@ -770,9 +785,21 @@ class PostGrid extends React.Component {
                     >
                         Next →
                     </a>
+                    <a
+                        style={{
+                            marginLeft: "20px",
+                            color: "purple",
+                        }}
+                    >
+                        {this.state.currentPlace} of {amountOfPages}
+                    </a>
                 </>
             );
         } else {
+            var amountOfPages = Math.ceil(search.length / 16);
+            if (amountOfPages == 0) {
+                amountOfPages = 1;
+            }
             return (
                 <>
                     <div className="dod-media-grid dod-stack-15">
@@ -795,7 +822,7 @@ class PostGrid extends React.Component {
                             cursor: "pointer",
                             color: "purple",
                         }}
-                        onClick={this.scrollPrevTwo}
+                        onClick={this.scrollPrev}
                     >
                         ← Prev
                     </a>
@@ -808,6 +835,14 @@ class PostGrid extends React.Component {
                         onClick={this.scrollNextTwo}
                     >
                         Next →
+                    </a>
+                    <a
+                        style={{
+                            marginLeft: "20px",
+                            color: "purple",
+                        }}
+                    >
+                        {this.state.currentPlace} of {amountOfPages}
                     </a>
                 </>
             );
@@ -825,8 +860,8 @@ class PostGrid extends React.Component {
  * a new post
  */
 class PostDisplay extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         // this.searchKeyWord = this.searchKeyWord.bind(this);
         this.state = {
             showMessage: false,
@@ -840,6 +875,8 @@ class PostDisplay extends React.Component {
             categories: [],
             // if any filter checkboxes are currently selected
             filteringEnabled: false,
+            currentPlace: this.props.currentPlace,
+            amountOfPages: this.props.amountOfPages,
         };
     }
     _showMessage = (bool, e) => {
@@ -1015,6 +1052,7 @@ class PostDisplay extends React.Component {
     };
 
     render() {
+        console.log(this.state.currentPlace);
         return this.props.posts != "" ? (
             <main data-grid-area="main">
                 {/* <h2 className="dod-heading-2 dod-stack-24">Upcoming events!</h2> */}
@@ -1022,6 +1060,7 @@ class PostDisplay extends React.Component {
                     posts={this.props.posts.filter(this.shouldInclude)}
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
+                    amountOfPages={this.state.amountOfPages}
                     search={this.state.search}
                     searchEnabled={this.state.searchEnabled}
                 />
@@ -1129,7 +1168,7 @@ class PostDisplay extends React.Component {
                         <input
                             type="text"
                             name="name"
-                            placeholder="Search function not complete yet"
+                            placeholder="Search Keyword"
                             className="dod-input"
                             style={{ outline: "none", width: "50%" }}
                             onChange={this.searchKeyWord}
