@@ -725,9 +725,15 @@ class PostGrid extends React.Component {
 
     render() {
         console.log(this.state.currentAmount);
-        const { posts, selectedId, onClick, search } = this.props;
+        const {
+            posts,
+            selectedId,
+            onClick,
+            search,
+            searchEnabled,
+        } = this.props;
         console.log(this.state, this.props);
-        if (search.length == 0) {
+        if (search.length == 0 && searchEnabled == false) {
             return (
                 <>
                     <div className="dod-media-grid dod-stack-15">
@@ -834,7 +840,6 @@ class PostDisplay extends React.Component {
             categories: [],
             // if any filter checkboxes are currently selected
             filteringEnabled: false,
-            searchEnabled: false,
         };
     }
     _showMessage = (bool, e) => {
@@ -984,11 +989,15 @@ class PostDisplay extends React.Component {
 
     searchKeyWord = (e) => {
         console.log(this.state.currentPlace);
+        this.setState({
+            searchEnabled: true,
+        });
 
         if (e.target.value.length == 0) {
             console.log("resetting to 0");
             this.setState({
                 search: [],
+                searchEnabled: false,
             });
         } else {
             console.log(e.target.value);
@@ -1014,6 +1023,7 @@ class PostDisplay extends React.Component {
                     selectedId={this.state.permID}
                     onClick={this.handlePerm}
                     search={this.state.search}
+                    searchEnabled={this.state.searchEnabled}
                 />
                 <p
                     style={{
