@@ -689,6 +689,7 @@ class PostGrid extends React.Component {
             currentAmount: 16,
             // current page number (1 = first page)
             currentPlace: 1,
+            search: this.props,
         };
     }
     componentDidUpdate(prevProps) {
@@ -721,9 +722,9 @@ class PostGrid extends React.Component {
             });
         }
     };
-    // TODO: fix unique key property console error
 
     render() {
+        console.log(this.state.currentAmount);
         const { posts, selectedId, onClick, search } = this.props;
         console.log(this.state, this.props);
         if (search.length == 0) {
@@ -788,7 +789,7 @@ class PostGrid extends React.Component {
                             cursor: "pointer",
                             color: "purple",
                         }}
-                        onClick={this.scrollPrev}
+                        onClick={this.scrollPrevTwo}
                     >
                         ← Prev
                     </a>
@@ -798,7 +799,7 @@ class PostGrid extends React.Component {
                             cursor: "pointer",
                             color: "purple",
                         }}
-                        onClick={this.scrollNext}
+                        onClick={this.scrollNextTwo}
                     >
                         Next →
                     </a>
@@ -870,6 +871,7 @@ class PostDisplay extends React.Component {
         this.setState({
             showMessageThree: bool,
         });
+        this.setState({});
         if (bool) {
             this.setState({
                 messageThree: "Collapse search",
@@ -921,10 +923,13 @@ class PostDisplay extends React.Component {
 
         // go back to the first page - if we don't do this, people might see just a blank
         // screen after changing the filters if they weren't originally on the first page
+
+        /* 
         this.setState({
             currentAmount: 16,
             currentPlace: 1,
         });
+        */
 
         const id = e.target.id;
         const category = id.replace("Button", "");
@@ -970,6 +975,7 @@ class PostDisplay extends React.Component {
     };
 
     filterByOldestPosts = (e) => {
+        console.log("this clicked");
         var data = this.props.posts.reverse();
         this.setState({
             posts: data,
@@ -977,18 +983,26 @@ class PostDisplay extends React.Component {
     };
 
     searchKeyWord = (e) => {
-        this.setState({
-            search: e.target.value,
-            searchEnabled: true,
-        });
-        console.log(e.target.value);
-        var data = this.props.posts.filter((p) => {
-            return p.title.toLowerCase().includes(e.target.value.toLowerCase());
-        });
-        this.setState({
-            search: data,
-        });
-        console.log(this.state.search);
+        console.log(this.state.currentPlace);
+
+        if (e.target.value.length == 0) {
+            console.log("resetting to 0");
+            this.setState({
+                search: [],
+            });
+        } else {
+            console.log(e.target.value);
+            var data = this.props.posts.filter((p) => {
+                return p.title
+                    .toLowerCase()
+                    .includes(e.target.value.toLowerCase());
+            });
+            console.log(data);
+            this.setState({
+                search: data,
+            });
+            console.log(this.state.search);
+        }
     };
 
     render() {
