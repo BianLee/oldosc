@@ -540,22 +540,17 @@ function AboutUsBox(props) {
                 borderWidth: "6px",
             }}
         >
+            {" "}
             <p
                 style={{
-                    fontSize: "1rem",
+                    fontSize: "1.5rem",
                     fontWeight: "lighter",
-                    lineHeight: "25px",
+                    lineHeight: "30px",
                     marginBottom: "10px",
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                <i>
-                    Lost in the midst of a bustling square inside an ever
-                    tightening storm of tormenting solitude, you rush to the
-                    scurrying crowds to catch a trace of that passionate
-                    intensity, a whiff of that flashing scent of new
-                    opportunity…
-                </i>
+                Welcome to Open Source Collage!
             </p>
             <p
                 style={{
@@ -567,9 +562,9 @@ function AboutUsBox(props) {
                 }}
             >
                 <span style={{ color: "#00008B" }}>
-                    Okay, maybe that was a little too dramatic, but as students,
-                    it is easy to feel lost in a myriad of opportunities.{" "}
-                </span>
+                    As students, it's easy to feel lost in a myriad of
+                    opportunities and finding the right extracurricular.
+                </span>{" "}
                 <span style={{ color: "#ad0778" }}>
                     Open Source Collage is a user-friendly platform designed to
                     help students develop their passion and discover new
