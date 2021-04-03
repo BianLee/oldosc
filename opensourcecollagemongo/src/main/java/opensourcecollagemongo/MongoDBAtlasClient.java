@@ -37,8 +37,9 @@ public class MongoDBAtlasClient {
 		/* 
 		collection.deleteMany(new Document());
 		collection.deleteMany(new Document());
-		collection.deleteMany(new Document("title", ""));
 		*/ 
+		collection.deleteMany(new Document("title", "Chinese Club Meeting"));
+		
 		
 		collection.createIndex(Indexes.ascending("date"), new IndexOptions().expireAfter(1L, TimeUnit.DAYS));
 			{
