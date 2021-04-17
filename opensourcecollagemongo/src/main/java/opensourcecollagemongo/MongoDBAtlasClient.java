@@ -20,7 +20,7 @@ import com.mongodb.client.model.Indexes;
 public class MongoDBAtlasClient {
 	public static void main(String[] args) {
 		MongoClientURI uri = new MongoClientURI(
-	  "mongodb+srv://bostonlobstergang:<password>@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+	  "mongodb+srv://bostonlobstergang:climbpg0326@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("cluster0");
 		MongoCollection<Document> collection = database.getCollection("messages");
@@ -34,11 +34,11 @@ public class MongoDBAtlasClient {
 		
 		// Hard code things here. 
 		
-		/* 
-		collection.deleteMany(new Document());
-		collection.deleteMany(new Document());
-		*/ 
-		collection.deleteMany(new Document("title", "Chinese Club Meeting"));
+		
+		// collection.deleteMany(new Document());
+		// collection.deleteMany(new Document());
+		 
+		collection.deleteMany(new Document("title", "Executive Positions at Brooks Brainery"));
 		
 		
 		collection.createIndex(Indexes.ascending("date"), new IndexOptions().expireAfter(1L, TimeUnit.DAYS));

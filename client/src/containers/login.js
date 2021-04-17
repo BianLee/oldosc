@@ -320,7 +320,7 @@ export default class LoginFirstFrame extends React.Component {
                                 FAQ
                             </Link> */}
                             <Link to="/post" style={{ marginLeft: "10px" }}>
-                                <u>Post</u>
+                                Post
                             </Link>
                         </header>
                         <main

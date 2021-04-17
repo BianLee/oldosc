@@ -62,7 +62,7 @@ export default class ManagementComponent extends React.Component {
                                 to="/management"
                                 style={{ marginLeft: "10px" }}
                             >
-                                <u>Management</u>
+                                Management
                             </Link>
                             {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
@@ -156,40 +156,6 @@ export default class ManagementComponent extends React.Component {
                                 about math and science-related topics. <br />
                                 <br />
                                 <br /> <br />
-                            </p>
-
-                            <div className="bio">
-                                <img src={RutvijHolay}></img>
-                            </div>
-                            <h1
-                                className="bio-heading"
-                                style={{ marginTop: "70px" }}
-                            >
-                                Rutvij Holay - Chief Business Development
-                                Officer
-                            </h1>
-                            <p
-                                style={{
-                                    fontSize: "1rem",
-                                    fontWeight: "lighter",
-                                    lineHeight: "25px",
-                                    marginBottom: "40px",
-                                    fontFamiliy: "Giga Sans Light",
-                                }}
-                            >
-                                Rutvij is a sophomore at Northwood High School.
-                                A seasoned political operative, Rutvij mainly
-                                serves as an Executive Committee member of
-                                Americans for Equality PAC, which seeks to
-                                ensure that all Americans have an equal
-                                opportunity for success when it comes to
-                                applying for college and for jobs. As CBDO of
-                                Open Source College, he hopes to use his
-                                expertise to bring new ideas and opportunities
-                                to high school students so that they may develop
-                                themselves, and help make a better world in the
-                                process. <br />
-                                <br />
                             </p>
 
                             <div className="bio">
