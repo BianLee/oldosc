@@ -157,36 +157,6 @@ export default class ManagementComponent extends React.Component {
                                 <br />
                                 <br /> <br />
                             </p>
-
-                            <div className="bio">
-                                <img src={AnthonyFoo}></img>
-                            </div>
-                            <h1
-                                className="bio-heading"
-                                style={{ marginTop: "70px" }}
-                            >
-                                Anthony Foo - Chief Marketing Officer
-                            </h1>
-                            <p
-                                style={{
-                                    fontSize: "1rem",
-                                    fontWeight: "lighter",
-                                    lineHeight: "25px",
-                                    marginBottom: "40px",
-                                    fontFamiliy: "Giga Sans Light",
-                                }}
-                            >
-                                Anthony is a Sophomore at Northwood High who is
-                                interested in helping create more equal chances
-                                for students to explore their passions. Being a
-                                volunteer for some non profit organizations, he
-                                aims to also help non profits find invested
-                                volunteers and grow as well. He is passionate
-                                about clarinet, swim, and general engineering
-                                related subjects. He aims to continue improving
-                                as a leader and communicator. <br />
-                                <br />
-                            </p>
                         </main>
                     </section>
                 </div>
