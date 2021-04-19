@@ -590,7 +590,9 @@ strong {
         height: 470px;
     }
 }
-
+#OSC {
+    background-color: #eed6cf !important;
+}
 #math {
     background-color: #f3e6d8 !important;
 }
@@ -618,7 +620,9 @@ strong {
 #humanities {
     background-color: #e4dddd !important;
 }
-
+#OSCborder {
+    border: 6px solid #eed6cf;
+}
 #mathborder {
     border: 6px solid #f3e6d8;
 }
