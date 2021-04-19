@@ -17,10 +17,12 @@ import com.mongodb.client.MongoDatabase;
 import com.mongodb.client.model.IndexOptions;
 import com.mongodb.client.model.Indexes;
 
+// Always be careful with Mongo. Do not run this script without thorough review.
+
 public class MongoDBAtlasClient {
 	public static void main(String[] args) {
 		MongoClientURI uri = new MongoClientURI(
-	  "mongodb+srv://bostonlobstergang:climbpg0326@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
+	  "mongodb+srv://bostonlobstergang:<password>@cluster0.plwnl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority");
 		MongoClient mongoClient = new MongoClient(uri);
 		MongoDatabase database = mongoClient.getDatabase("cluster0");
 		MongoCollection<Document> collection = database.getCollection("messages");

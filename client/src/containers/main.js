@@ -430,9 +430,11 @@ function NavBar(props) {
                 >
                     Contribute
                 </a>
+                {/*
                 <Link to="/management" style={{ marginLeft: "10px" }}>
                     Management
                 </Link>
+                */}
                 {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
                 </Link> */}
@@ -482,22 +484,23 @@ function PostExtraInfo(props) {
                         </span>
                     </p>
                 </b>
-
-                <br></br>
-                <a
-                    style={{
-                        fontSize: "1rem",
-                        fontWeight: "lighter",
-                        lineHeight: "25px",
-                        marginBottom: "10px",
-                        fontFamiliy: "Giga Sans Light",
-                    }}
-                    href={props.link}
-                    target="_blank"
-                    style={{ color: "purple" }}
-                >
-                    {props.link}
-                </a>
+                <span style={{ marginTop: "10px" }}>
+                    <a
+                        style={{
+                            fontSize: "1rem",
+                            fontWeight: "lighter",
+                            lineHeight: "25px",
+                            marginBottom: "10px",
+                            marginTop: "20px",
+                            fontFamiliy: "Giga Sans Light",
+                        }}
+                        href={props.link}
+                        target="_blank"
+                        style={{ color: "purple" }}
+                    >
+                        {props.link}
+                    </a>
+                </span>
                 <p
                     style={{
                         fontSize: "1rem",

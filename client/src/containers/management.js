@@ -58,12 +58,14 @@ export default class ManagementComponent extends React.Component {
                             >
                                 Contribute
                             </a>
+                            {/*
                             <Link
                                 to="/management"
                                 style={{ marginLeft: "10px" }}
                             >
                                 Management
                             </Link>
+                             */}
                             {/* <Link to="/faq" style={{ marginLeft: "10px" }}>
                                 FAQ
                             </Link> */}
