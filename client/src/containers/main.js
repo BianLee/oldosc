@@ -484,6 +484,7 @@ function PostExtraInfo(props) {
                         </span>
                     </p>
                 </b>
+                <br></br>
                 <span style={{ marginTop: "10px" }}>
                     <a
                         style={{
@@ -557,17 +558,13 @@ function AboutUsBox(props) {
             </p>
             <p
                 style={{
-                    fontSize: "1.3rem",
+                    fontSize: "1.8rem",
                     fontWeight: "lighter",
                     lineHeight: "25px",
                     marginBottom: "10px",
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                <span style={{ color: "#00008B" }}>
-                    As students, it's easy to feel lost in a myriad of
-                    opportunities and finding the right extracurricular.
-                </span>{" "}
                 <span style={{ color: "#ad0778" }}>
                     Open Source Collage is a user-friendly platform designed to
                     help students develop their passion and discover new
@@ -578,12 +575,12 @@ function AboutUsBox(props) {
                 <span style={{ color: "#00008B" }}>
                     It also allows you to share your own events upon creating an
                     account, which will help you and your organization connect
-                    with thousands of others in all parts of the country. Open
-                    Source Collage also leads an effort on its own to bring
-                    useful resources to students through facilitating new
-                    connections between students and organizations, and through
-                    the “featured organization” page, which is reserved for most
-                    highly valuable opportunities and organizations.
+                    with thousands of others in all parts of the country. OSC+
+                    leads an effort on its own to bring useful resources to
+                    students through facilitating new connections between
+                    students and organizations, and through the “featured
+                    organization” page, which is reserved for most highly
+                    valuable opportunities and organizations.
                 </span>
             </p>
             {/* 
@@ -631,44 +628,26 @@ function FeaturedOrg(props) {
             </div>
             <p
                 style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "lighter",
-                    lineHeight: "30px",
-                    marginBottom: "10px",
-                    fontFamiliy: "Giga Sans Light",
-                }}
-            >
-                InterSTEM - Featured Organization
-            </p>
-            <p
-                style={{
-                    fontSize: "1rem",
+                    fontSize: "1.8rem",
                     fontWeight: "lighter",
                     lineHeight: "25px",
                     marginBottom: "10px",
                     fontFamiliy: "Giga Sans Light",
                 }}
             >
-                InterSTEM is a non-profit organization that hopes to raise
-                awareness about the relevance of STEM-related topics to the
-                world. Functioning mainly online, this platform offers a
-                tutoring service for students, updates readers about current
-                news in STEM through articles and blog posts, and plans
-                collaborative projects between high school and elementary
-                students. Through the integration of science, technology,
-                engineering, and mathematics, InterSTEM provides students of all
-                backgrounds the opportunity to explore and dive deeper into the
-                world of STEM. Learn more about InterSTEM{" "}
-                <a
-                    href="https://interstem.us"
-                    target="_blank"
-                    style={{ color: "purple" }}
-                >
-                    here
-                </a>
-                .<br></br>
-                <br></br>
-                <br></br>
+                <span style={{ color: "#000000" }} className="noselect">
+                    Feateured Organization: InterSTEM is a non-profit
+                    organization that hopes to raise awareness about the
+                    relevance of STEM-related topics to the world. Functioning
+                    mainly online, this platform offers a tutoring service for
+                    students, updates readers about current news in STEM through
+                    articles and blog posts, and plans collaborative projects
+                    between high school and elementary students. Through the
+                    integration of science, technology, engineering, and
+                    mathematics, InterSTEM provides students of all backgrounds
+                    the opportunity to explore and dive deeper into the world of
+                    STEM. Learn more about InterSTEM here.
+                </span>
             </p>
         </main>
     );
@@ -1282,9 +1261,9 @@ function Post({ post, selected, onClick }) {
     let style = {};
     if (selected) {
         style = {
-            borderStyle: "dotted",
-            borderWidth: "2.5px",
-            borderColor: "black",
+            borderStyle: "solid",
+            borderWidth: "2px",
+            borderColor: "gray",
         };
     }
     return (
