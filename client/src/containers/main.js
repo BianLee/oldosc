@@ -477,14 +477,22 @@ function PostExtraInfo(props) {
                     >
                         {props.title}
                         {"\u00A0"}
-                        <span id={props.category} style={{ fontSize: "20px" }}>
+                        <span id={props.category} style={{ fontSize: "19px" }}>
                             {"\u00A0"}
                             {props.category}
                             {"\u00A0"}
                         </span>
                     </p>
                 </b>
-                <br></br>
+                <p
+                    style={{
+                        fontSize: "1rem",
+                        fontWeight: "lighter",
+                        lineHeight: "25px",
+                        marginBottom: "10px",
+                        fontFamiliy: "Giga Sans Light",
+                    }}
+                ></p>
                 <span style={{ marginTop: "10px" }}>
                     <a
                         style={{
@@ -513,7 +521,7 @@ function PostExtraInfo(props) {
                 >
                     {props.date}
                 </p>
-                <p
+                <span
                     style={{
                         fontSize: "1rem",
                         fontWeight: "lighter",
@@ -523,7 +531,7 @@ function PostExtraInfo(props) {
                     }}
                 >
                     {props.description}
-                </p>
+                </span>
             </main>
         </>
     );
