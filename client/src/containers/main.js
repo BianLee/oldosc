@@ -649,6 +649,8 @@ function FeaturedOrg(props) {
                     mathematics, InterSTEM provides students of all backgrounds
                     the opportunity to explore and dive deeper into the world of
                     STEM. Learn more about InterSTEM here.
+                    <br />
+                    <br />
                 </span>
             </p>
         </main>
@@ -749,6 +751,7 @@ class PostGrid extends React.Component {
                         style={{
                             cursor: "pointer",
                             color: "purple",
+                            fontSize: "19px",
                         }}
                         onClick={this.scrollPrev}
                     >
@@ -759,6 +762,7 @@ class PostGrid extends React.Component {
                             marginLeft: "20px",
                             cursor: "pointer",
                             color: "purple",
+                            fontSize: "19px",
                         }}
                         onClick={this.scrollNext}
                     >
@@ -819,6 +823,7 @@ class PostGrid extends React.Component {
                         style={{
                             marginLeft: "20px",
                             color: "purple",
+                            fontSize: "19px",
                         }}
                     >
                         {this.state.currentPlace} of {amountOfPages}
@@ -1047,12 +1052,14 @@ class PostDisplay extends React.Component {
                     style={{
                         marginLeft: "20px",
                         display: "inline",
+                        fontSize: "19px",
                     }}
                 ></p>
                 <a
                     style={{
                         cursor: "pointer",
                         display: "inline",
+                        fontSize: "19px",
                     }}
                     onClick={this._showMessage.bind(
                         null,
@@ -1067,6 +1074,7 @@ class PostDisplay extends React.Component {
                     style={{
                         cursor: "pointer",
                         display: "inline",
+                        fontSize: "19px",
                     }}
                     onClick={this._showMessageTwo.bind(
                         null,
@@ -1082,6 +1090,7 @@ class PostDisplay extends React.Component {
                     style={{
                         cursor: "pointer",
                         display: "inline",
+                        fontSize: "19px",
                     }}
                     onClick={this._showMessageThree.bind(
                         null,
@@ -1149,7 +1158,11 @@ class PostDisplay extends React.Component {
                             name="name"
                             placeholder="Search Keyword"
                             className="dod-input"
-                            style={{ outline: "none", width: "50%" }}
+                            style={{
+                                outline: "none",
+                                width: "50%",
+                                fontSize: "19px",
+                            }}
                             onChange={this.searchKeyWord}
                             autocomplete="off"
                         />
@@ -1245,7 +1258,9 @@ function FilterCheckbox(props) {
     return (
         <>
             <input id={props.id} type="checkbox" onChange={props.onChange} />
-            <label htmlFor={props.id}>{props.text}</label>
+            <label htmlFor={props.id} style={{ fontSize: "19px" }}>
+                {props.text}
+            </label>
             {"\u00A0"}
             {"\u00A0"}
         </>
@@ -1265,7 +1280,7 @@ function Post({ post, selected, onClick }) {
         style = {
             borderStyle: "solid",
             borderWidth: "2px",
-            borderColor: "gray",
+            borderColor: "#999797",
         };
     }
     return (
