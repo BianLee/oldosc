@@ -546,6 +546,7 @@ function AboutUsBox(props) {
         >
             {" "}
             <p
+                className="noselect"
                 style={{
                     fontSize: "1.5rem",
                     fontWeight: "lighter",
@@ -557,6 +558,7 @@ function AboutUsBox(props) {
                 Welcome to Open Source Collage!
             </p>
             <p
+                className="noselect"
                 style={{
                     fontSize: "1.8rem",
                     fontWeight: "lighter",
@@ -1290,6 +1292,7 @@ function Post({ post, selected, onClick }) {
                     data-id={post._id}
                     data-title={post.title}
                     data-category={post.category}
+                    style={{ fontSize: "19px" }}
                 >
                     {post.title}
                 </p>
