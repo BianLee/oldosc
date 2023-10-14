@@ -1,3 +1,5 @@
+![image](https://github.com/BianLee/opensourcecollage.com-legacy/assets/62369269/c61bd0a2-cf35-44ba-b9db-2025921b8a16)
+
 ## Technologies & Stack
 
 <a href="https://opensourcecollage.com" target="_blank">opensourcecollage.com</a> is built on MERN stack (MongoDB, Express, React, NodeJS).
@@ -34,7 +36,6 @@ It is not required to start the server locally, because it initiates server conn
 MongoDB Atlas is managed programmatically with simple Java Gradle.
 
 `/opensourcecollagemongo/src/main/java/opensourcecollagemongo/MongoDBAtlasClient.java` manages the MongoDB Atlas, such as removing old posts.
-
 
 
 ## Contributors
